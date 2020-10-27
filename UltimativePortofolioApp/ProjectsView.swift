@@ -11,6 +11,8 @@ struct ProjectsView: View {
     
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
+    static let openTag: String? = "Open"
+    static let closedTag: String? = "Closed"
     
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects

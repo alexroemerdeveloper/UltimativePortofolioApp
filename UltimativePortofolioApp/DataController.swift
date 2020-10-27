@@ -9,6 +9,7 @@ import CoreData
 import SwiftUI
 
 class DataController: ObservableObject {
+
     let container: NSPersistentCloudKitContainer
     
     init(inMemory: Bool = false) {
