@@ -25,11 +25,10 @@ struct ProjectsView: View {
         NavigationView {
             List {
                 ForEach(projects.wrappedValue) { project in
-                    Section(header: Text(project.projectTitle)) {
-                        ForEach(project.projectItems) { item in
-                           ItemRowView(item: item)
-                        }
-                        //ForEach(project.projectItems, content: ItemRowView.init)
+                    Section(header: ProjectHeaderView(project: project)) {                 ForEach(project.projectItems) { item in
+                            ItemRowView(item: item)
+                    }
+                    //ForEach(project.projectItems, content: ItemRowView.init)
                     }
                 }
             }
@@ -41,7 +40,7 @@ struct ProjectsView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var dataController = DataController.preview
-
+    
     static var previews: some View {
         ProjectsView(showClosedProjects: false)
             .environment(\.managedObjectContext, dataController.container.viewContext)
