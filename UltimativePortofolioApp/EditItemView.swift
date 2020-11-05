@@ -45,7 +45,8 @@ struct EditItemView: View {
             }
 
             Section(header: Text("Priority")) {
-                Picker("Priority", selection: $priority.onChange(update)) {                    Text("Low").tag(1)
+                Picker("Priority", selection: $priority.onChange(update)) {
+                    Text("Low").tag(1)
                     Text("Medium").tag(2)
                     Text("High").tag(3)
                 }
