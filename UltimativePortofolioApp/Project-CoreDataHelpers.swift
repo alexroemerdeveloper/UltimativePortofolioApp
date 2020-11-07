@@ -11,32 +11,35 @@ extension Project {
     
     static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
 
-    
     var projectItems: [Item] {
-        let itemsArray = items?.allObjects as? [Item] ?? []
-
-        return itemsArray.sorted {
+        items?.allObjects as? [Item] ?? []
+    }
+    
+    
+    
+    var projectItemsDefaultSorted: [Item] {
+        return projectItems.sorted { first, second in
             
             //First filter condition
-            if $0.completed == false {
-                if $1.completed == true {
+            if first.completed == false {
+                if second.completed == true {
                     return true
                 }
-            } else if $0.completed == true {
-                if $1.completed == false {
+            } else if first.completed == true {
+                if second.completed == false {
                     return false
                 }
             }
 
             //Second filter condition
-            if $0.priority > $1.priority {
+            if first.priority > second.priority {
                 return true
-            } else if $0.priority < $1.priority {
+            } else if first.priority < second.priority {
                 return false
             }
 
             //Last filter condition
-            return $0.itemCreationDate < $1.itemCreationDate
+            return first.itemCreationDate < second.itemCreationDate
         }
     }
     
@@ -69,4 +72,16 @@ extension Project {
         project.creationDate = Date()
         return project
     }
+    
+    func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
+        switch sortOrder {
+        case .title:
+            return projectItems.sorted(by: \Item.itemTitle)
+        case .creationDate:
+            return projectItems.sorted(by: \Item.itemCreationDate)
+        case .optimized:
+            return projectItemsDefaultSorted
+        }
+    }
+
 }
