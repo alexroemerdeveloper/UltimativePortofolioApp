@@ -15,8 +15,6 @@ extension Project {
         items?.allObjects as? [Item] ?? []
     }
     
-    
-    
     var projectItemsDefaultSorted: [Item] {
         return projectItems.sorted { first, second in
             
