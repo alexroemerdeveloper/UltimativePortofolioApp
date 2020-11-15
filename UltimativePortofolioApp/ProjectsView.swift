@@ -14,19 +14,19 @@ struct ProjectsView: View {
     
     @State private var showingSortOrder = false
     @State private var sortOrder = Item.SortOrder.optimized
-
+    
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
     static let openTag: String? = "Open"
     static let closedTag: String? = "Closed"
     
-//    let sortingKeyPaths = [
-//        \Item.itemTitle,
-//        \Item.itemCreationDate
-//    ]
+    //    let sortingKeyPaths = [
+    //        \Item.itemTitle,
+    //        \Item.itemCreationDate
+    //    ]
     
-//    @State private var sortingKeyPath: PartialKeyPath<Item>?
-//    @State var sortDescriptor: NSSortDescriptor?
+    //    @State private var sortingKeyPath: PartialKeyPath<Item>?
+    //    @State var sortDescriptor: NSSortDescriptor?
     
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects
@@ -37,40 +37,48 @@ struct ProjectsView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(projects.wrappedValue) { project in
-                    Section(header: ProjectHeaderView(project: project)) {
-                        ForEach(project.projectItems(using: sortOrder)) { item in
-                            ItemRowView(item: item)
-                    }
-                    .onDelete { offsets in
-                        let allItems = project.projectItems
-
-                        for offset in offsets {
-                            let item = allItems[offset]
-                            dataController.delete(item)
-                        }
-
-                        dataController.save()
-                    }
-                    
-                    if showClosedProjects == false {
-                        Button {
-                            withAnimation {
-                                let item = Item(context: managedObjectContext)
-                                item.project = project
-                                item.creationDate = Date()
-                                dataController.save()
+            
+            Group {
+                if projects.wrappedValue.count == 0 {
+                    Text("There's nothing here right now.")
+                        .foregroundColor(.secondary)
+                } else {
+                    List {
+                        ForEach(projects.wrappedValue) { project in
+                            Section(header: ProjectHeaderView(project: project)) {
+                                ForEach(project.projectItems(using: sortOrder)) { item in
+                                    ItemRowView(project: project, item: item)
+                                }
+                                .onDelete { offsets in
+                                    let allItems = project.projectItems(using: sortOrder)
+                                    
+                                    for offset in offsets {
+                                        let item = allItems[offset]
+                                        dataController.delete(item)
+                                    }
+                                    
+                                    dataController.save()
+                                }
+                                
+                                if showClosedProjects == false {
+                                    Button {
+                                        withAnimation {
+                                            let item = Item(context: managedObjectContext)
+                                            item.project = project
+                                            item.creationDate = Date()
+                                            dataController.save()
+                                        }
+                                    } label: {
+                                        Label("Add New Item", systemImage: "plus")
+                                    }
+                                }
+                                //ForEach(project.projectItems, content: ItemRowView.init)
                             }
-                        } label: {
-                            Label("Add New Item", systemImage: "plus")
                         }
                     }
-                    //ForEach(project.projectItems, content: ItemRowView.init)
-                    }
+                    .listStyle(InsetGroupedListStyle())
                 }
             }
-            .listStyle(InsetGroupedListStyle())
             .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -87,7 +95,7 @@ struct ProjectsView: View {
                         }
                     }
                 }
-
+                
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         showingSortOrder.toggle()
@@ -103,11 +111,13 @@ struct ProjectsView: View {
                     .default(Text("Creation Date")) { sortOrder = .creationDate },
                     .default(Text("Title")) { sortOrder = .title }
                 ])
-
+                
             }
+            
+            SelectSomethingView()
         }
     }
-        
+    
     
 }
 
@@ -130,13 +140,13 @@ struct ProjectsView_Previews: PreviewProvider {
 //                    .default(Text("Creation Date")) { sortDescriptor = NSSortDescriptor(keyPath: \Item.creationDate, ascending: true) },
 //                    .default(Text("Title"))         { sortDescriptor = NSSortDescriptor(keyPath: \Item.title, ascending: true) },
 //                ])
-                
+
 //                ActionSheet(title: Text("Sort items"), message: nil, buttons: [
 //                    .default(Text("Optimized"))     { sortingKeyPath = nil },
 //                    .default(Text("Creation Date")) { sortingKeyPath = \Item.itemCreationDate },
 //                    .default(Text("Title"))         { sortingKeyPath = \Item.itemTitle }
 //                ])
-                
+
 //                ActionSheet(title: Text("Sort items"), message: nil, buttons: [
 //                    .default(Text("Optimized")) { sortDescriptor = nil },
 //                    .default(Text("Creation Date")) { sortDescriptor = NSSortDescriptor(keyPath: \Item.creationDate, ascending: true) },
@@ -161,7 +171,7 @@ struct ProjectsView_Previews: PreviewProvider {
 //
 //        return project.projectItemsDefaultSorted
 //    }
-    
+
 //    func items(for project: Project) -> [Item] {
 //        guard let sortDescriptor = sortDescriptor else { return project.projectItemsDefaultSorted }
 //        return project.projectItems.sorted(by: sortDescriptor)
@@ -177,7 +187,7 @@ struct ProjectsView_Previews: PreviewProvider {
 //            return project.projectItemsDefaultSorted
 //        }
 //    }
-    
+
 //    func projectItems<Value: Comparable>(sortedBy keyPath: KeyPath<Item, Value>) -> [Item] {
 //        projectItems.sorted {
 //            $0[keyPath: keyPath] < $1[keyPath: keyPath]
