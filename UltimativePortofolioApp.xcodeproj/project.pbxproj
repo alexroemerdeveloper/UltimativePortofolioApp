@@ -19,13 +19,13 @@
 		6F5B92AF25572E6E00118CA7 /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B92AE25572E6E00118CA7 /* Sequence-Sorting.swift */; };
 		6F9CBB452577B75C00866BE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CBB472577B75C00866BE4 /* Localizable.strings */; };
 		6F9CBB492577B7DC00866BE4 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CBB4B2577B7DC00866BE4 /* Localizable.stringsdict */; };
+		6F9CBB4E2577B89500866BE4 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CBB502577B89500866BE4 /* Awards.json */; };
 		6FAB016B254C46E5000483D8 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB016A254C46E5000483D8 /* ProjectHeaderView.swift */; };
 		6FAB016E254C49EB000483D8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FAB016D254C49EB000483D8 /* Colors.xcassets */; };
 		6FAB0171254C4D0A000483D8 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB0170254C4D0A000483D8 /* EditProjectView.swift */; };
 		6FC956E8256FB65E00EE24BE /* Color-Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC956E7256FB65E00EE24BE /* Color-Additions.swift */; };
 		6FCA47432561B8C60046E52A /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA47422561B8C60046E52A /* SelectSomethingView.swift */; };
 		6FCA47462561BBB20046E52A /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA47452561BBB20046E52A /* Bundle-Decodable.swift */; };
-		6FCA47492561C1290046E52A /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FCA47482561C1280046E52A /* Awards.json */; };
 		6FCA474C2561C1A70046E52A /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA474B2561C1A70046E52A /* Award.swift */; };
 		6FCA474F2561C1DF0046E52A /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA474E2561C1DF0046E52A /* AwardsView.swift */; };
 		6FCFA9FD25489FF8000931AD /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCFA9FC25489FF8000931AD /* EditItemView.swift */; };
@@ -52,13 +52,14 @@
 		6F9CBB482577B76800866BE4 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F9CBB4A2577B7DC00866BE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		6F9CBB4D2577B7E000866BE4 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = hu; path = hu.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		6F9CBB4F2577B89500866BE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/Awards.json; sourceTree = "<group>"; };
+		6F9CBB522577B89900866BE4 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = hu; path = hu.lproj/Awards.json; sourceTree = "<group>"; };
 		6FAB016A254C46E5000483D8 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		6FAB016D254C49EB000483D8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6FAB0170254C4D0A000483D8 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		6FC956E7256FB65E00EE24BE /* Color-Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions.swift"; sourceTree = "<group>"; };
 		6FCA47422561B8C60046E52A /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = "<group>"; };
 		6FCA47452561BBB20046E52A /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
-		6FCA47482561C1280046E52A /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
 		6FCA474B2561C1A70046E52A /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		6FCA474E2561C1DF0046E52A /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		6FCFA9FC25489FF8000931AD /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
@@ -119,7 +120,7 @@
 				6FC956E7256FB65E00EE24BE /* Color-Additions.swift */,
 				6F9CBB472577B75C00866BE4 /* Localizable.strings */,
 				6F9CBB4B2577B7DC00866BE4 /* Localizable.stringsdict */,
-				6FCA47482561C1280046E52A /* Awards.json */,
+				6F9CBB502577B89500866BE4 /* Awards.json */,
 				6F5858A42541F0E600F30367 /* Main.xcdatamodeld */,
 				6FAB016D254C49EB000483D8 /* Colors.xcassets */,
 				6F5858982541EB9900F30367 /* Assets.xcassets */,
@@ -205,7 +206,7 @@
 			files = (
 				6F9CBB452577B75C00866BE4 /* Localizable.strings in Resources */,
 				6FAB016E254C49EB000483D8 /* Colors.xcassets in Resources */,
-				6FCA47492561C1290046E52A /* Awards.json in Resources */,
+				6F9CBB4E2577B89500866BE4 /* Awards.json in Resources */,
 				6F58589C2541EB9900F30367 /* Preview Assets.xcassets in Resources */,
 				6F5858992541EB9900F30367 /* Assets.xcassets in Resources */,
 				6F9CBB492577B7DC00866BE4 /* Localizable.stringsdict in Resources */,
@@ -259,6 +260,15 @@
 				6F9CBB4D2577B7E000866BE4 /* hu */,
 			);
 			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+		6F9CBB502577B89500866BE4 /* Awards.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F9CBB4F2577B89500866BE4 /* en */,
+				6F9CBB522577B89900866BE4 /* hu */,
+			);
+			name = Awards.json;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
