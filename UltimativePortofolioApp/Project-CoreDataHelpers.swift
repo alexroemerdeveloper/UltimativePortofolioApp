@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Project {
     
@@ -50,6 +51,10 @@ extension Project {
     
     var projectTitle: String {
         title ?? NSLocalizedString("New Project", comment: "Create a new project")
+    }
+    
+    var label: LocalizedStringKey {
+        LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete.")
     }
 
     var projectDetail: String {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F156E3E257D65D900D591A8 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F156E3D257D65D900D591A8 /* ItemListView.swift */; };
+		6F156E41257D667600D591A8 /* ProjectSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F156E40257D667600D591A8 /* ProjectSummary.swift */; };
 		6F5858952541EB9800F30367 /* UltimativePortofolioAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5858942541EB9800F30367 /* UltimativePortofolioAppApp.swift */; };
 		6F5858972541EB9800F30367 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5858962541EB9800F30367 /* ContentView.swift */; };
 		6F5858992541EB9900F30367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5858982541EB9900F30367 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F156E3D257D65D900D591A8 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		6F156E40257D667600D591A8 /* ProjectSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummary.swift; sourceTree = "<group>"; };
 		6F5858912541EB9800F30367 /* UltimativePortofolioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimativePortofolioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5858942541EB9800F30367 /* UltimativePortofolioAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimativePortofolioAppApp.swift; sourceTree = "<group>"; };
 		6F5858962541EB9800F30367 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				6F5859342543243A00F30367 /* ProjectsView.swift */,
 				6FCA47422561B8C60046E52A /* SelectSomethingView.swift */,
 				6F5859302543241500F30367 /* HomeView.swift */,
+				6F156E3D257D65D900D591A8 /* ItemListView.swift */,
+				6F156E40257D667600D591A8 /* ProjectSummary.swift */,
 				6F5858A825420E1A00F30367 /* DataController.swift */,
 				6FCFA9FC25489FF8000931AD /* EditItemView.swift */,
 				6FCFA9FF2548A4A2000931AD /* ItemRowView.swift */,
@@ -225,8 +231,10 @@
 				6F5858A62541F0E600F30367 /* Main.xcdatamodeld in Sources */,
 				6FCA47462561BBB20046E52A /* Bundle-Decodable.swift in Sources */,
 				6FED5D982544980A00B2BE04 /* Project-CoreDataHelpers.swift in Sources */,
+				6F156E3E257D65D900D591A8 /* ItemListView.swift in Sources */,
 				6FCA47432561B8C60046E52A /* SelectSomethingView.swift in Sources */,
 				6FCA474C2561C1A70046E52A /* Award.swift in Sources */,
+				6F156E41257D667600D591A8 /* ProjectSummary.swift in Sources */,
 				6FCA474F2561C1DF0046E52A /* AwardsView.swift in Sources */,
 				6F5858A925420E1A00F30367 /* DataController.swift in Sources */,
 				6FAB016B254C46E5000483D8 /* ProjectHeaderView.swift in Sources */,
