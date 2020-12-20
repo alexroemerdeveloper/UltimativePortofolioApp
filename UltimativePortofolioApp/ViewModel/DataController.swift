@@ -9,7 +9,7 @@ import CoreData
 import SwiftUI
 
 class DataController: ObservableObject {
-
+    
     let container: NSPersistentCloudKitContainer
     
     init(inMemory: Bool = false) {
@@ -17,7 +17,7 @@ class DataController: ObservableObject {
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
-        container.loadPersistentStores { (storeDescription, error) in
+        container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
@@ -26,16 +26,16 @@ class DataController: ObservableObject {
     
     func createSampleData() throws {
         let viewContext = container.viewContext
-        for i in 1...5 {
+        for projectCounter in 1...5 {
             let project = Project(context: viewContext)
-            project.title = "Project \(i)"
+            project.title = "Project \(projectCounter)"
             project.items = []
             project.creationDate = Date()
             project.closed = Bool.random()
-
-            for j in 1...10 {
+            
+            for itemCounter in 1...10 {
                 let item = Item(context: viewContext)
-                item.title = "Item \(j)"
+                item.title = "Item \(itemCounter)"
                 item.creationDate = Date()
                 item.completed = false
                 item.project = project
@@ -71,7 +71,7 @@ class DataController: ObservableObject {
         let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
         _ = try? container.viewContext.execute(batchDeleteRequest1)
-
+        
         let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
         let batchDeleteRequest2 = NSBatchDeleteRequest(fetchRequest: fetchRequest2)
         _ = try? container.viewContext.execute(batchDeleteRequest2)
@@ -93,7 +93,7 @@ class DataController: ObservableObject {
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
         default:
-//             fatalError("Unknown award criterion \(award.criterion).")
+            //             fatalError("Unknown award criterion \(award.criterion).")
             return false
         }
     }

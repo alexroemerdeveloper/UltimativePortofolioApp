@@ -54,14 +54,14 @@ struct EditProjectView: View {
                     project.closed.toggle()
                     update()
                 }
-
+                
                 Button("Delete this project") {
                     // delete the project
                     showingDeleteConfirm.toggle()
                 }
                 .accentColor(.red)
             }
-
+            
         }
         .navigationTitle("Edit Project")
         .onDisappear(perform: dataController.save)
@@ -87,7 +87,7 @@ struct EditProjectView: View {
             Color(item)
                 .aspectRatio(1, contentMode: .fit)
                 .cornerRadius(6)
-
+            
             if item == color {
                 Image(systemName: "checkmark.circle")
                     .foregroundColor(.white)

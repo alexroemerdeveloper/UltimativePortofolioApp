@@ -43,28 +43,28 @@ struct ItemRowView: View {
             }
         }
         .accessibilityLabel(label)
-
+        
     }
     
-//    NavigationLink(destination: EditItemView(item: item)) {
-//        Label(title: {
-//            Text(item.itemTitle)
-//        }, icon: icon)
-//    }
+    //    NavigationLink(destination: EditItemView(item: item)) {
+    //        Label(title: {
+    //            Text(item.itemTitle)
+    //        }, icon: icon)
+    //    }
     
-//    func icon() -> some View {
-//        if item.completed {
-//            return Image(systemName: "checkmark.circle")
-//                .foregroundColor(Color(project.projectColor))
-//        } else if item.priority == 3 {
-//            return Image(systemName: "exclamationmark.triangle")
-//                .foregroundColor(Color(project.projectColor))
-//        } else {
-//            return Image(systemName: "checkmark.circle")
-//                .foregroundColor(.clear)
-//        }
-//    }
-
+    //    func icon() -> some View {
+    //        if item.completed {
+    //            return Image(systemName: "checkmark.circle")
+    //                .foregroundColor(Color(project.projectColor))
+    //        } else if item.priority == 3 {
+    //            return Image(systemName: "exclamationmark.triangle")
+    //                .foregroundColor(Color(project.projectColor))
+    //        } else {
+    //            return Image(systemName: "checkmark.circle")
+    //                .foregroundColor(.clear)
+    //        }
+    //    }
+    
 }
 
 struct ItemRowView_Previews: PreviewProvider {

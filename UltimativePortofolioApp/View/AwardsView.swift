@@ -52,7 +52,7 @@ struct AwardsView: View {
                 return Alert(title: Text("Locked"), message: Text("\(Text(selectedAward.description))"), dismissButton: .default(Text("OK")))
             }
         }
-
+        
     }
 }
 

@@ -43,7 +43,7 @@ struct EditItemView: View {
                 TextField("Item name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
             }
-
+            
             Section(header: Text("Priority")) {
                 Picker("Priority", selection: $priority.onChange(update)) {
                     Text("Low")
@@ -55,7 +55,7 @@ struct EditItemView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
-
+            
             Section {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
             }

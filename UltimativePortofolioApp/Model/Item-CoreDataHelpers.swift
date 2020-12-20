@@ -15,11 +15,11 @@ extension Item {
     var itemTitle: String {
         title ?? NSLocalizedString("New Item", comment: "Create a new item")
     }
-
+    
     var itemDetail: String {
         detail ?? ""
     }
-
+    
     var itemCreationDate: Date {
         creationDate ?? Date()
     }

@@ -11,7 +11,7 @@ import SwiftUI
 extension Project {
     
     static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
-
+    
     var projectItems: [Item] {
         items?.allObjects as? [Item] ?? []
     }
@@ -29,14 +29,14 @@ extension Project {
                     return false
                 }
             }
-
+            
             //Second filter condition
             if first.priority > second.priority {
                 return true
             } else if first.priority < second.priority {
                 return false
             }
-
+            
             //Last filter condition
             return first.itemCreationDate < second.itemCreationDate
         }
@@ -56,11 +56,11 @@ extension Project {
     var label: LocalizedStringKey {
         LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete.")
     }
-
+    
     var projectDetail: String {
         detail ?? ""
     }
-
+    
     var projectColor: String {
         color ?? "Light Blue"
     }
@@ -86,5 +86,5 @@ extension Project {
             return projectItemsDefaultSorted
         }
     }
-
+    
 }

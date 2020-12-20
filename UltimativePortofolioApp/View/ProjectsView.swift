@@ -46,7 +46,7 @@ extension ProjectsView {
             }
         }
     }
-
+    
     var sortOrderToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button {
@@ -85,7 +85,7 @@ struct ProjectsView: View {
             NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)
         ], predicate: NSPredicate(format: "closed = %d", showClosedProjects))
     }
-        
+    
     var body: some View {
         NavigationView {
             Group {
@@ -127,12 +127,12 @@ struct ProjectsView: View {
     
     func delete(_ offsets: IndexSet, from project: Project) {
         let allItems = project.projectItems(using: sortOrder)
-
+        
         for offset in offsets {
             let item = allItems[offset]
             dataController.delete(item)
         }
-
+        
         dataController.save()
     }
     

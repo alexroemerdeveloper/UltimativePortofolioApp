@@ -11,8 +11,11 @@ import CoreData
 struct HomeView: View {
     @EnvironmentObject var dataController: DataController
     
-    @FetchRequest(entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)], predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
-
+    @FetchRequest(entity: Project.entity(),
+                  sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
+                  predicate: NSPredicate(format: "closed = false"))
+    var projects: FetchedResults<Project>
+    
     static let tag: String? = "Home"
     let items: FetchRequest<Item>
     
@@ -26,16 +29,16 @@ struct HomeView: View {
         let completedPredicate = NSPredicate(format: "completed = false")
         let openPredicate      = NSPredicate(format: "project.closed = false")
         let compoundPredicate  = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
-
+        
         request.predicate = compoundPredicate
         
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
         ]
-
+        
         request.fetchLimit = 10
         items = FetchRequest(fetchRequest: request)
-
+        
     }
     
     var body: some View {
@@ -70,43 +73,43 @@ struct HomeView: View {
     }
     
     
-//    @ViewBuilder func list(_ title: LocalizedStringKey, for items: FetchedResults<Item>.SubSequence) -> some View {
-//        if items.isEmpty {
-//            EmptyView()
-//        } else {
-//            Text(title)
-//                .font(.headline)
-//                .foregroundColor(.secondary)
-//                .padding(.top)
-//
-//            ForEach(items) { item in
-//                NavigationLink(destination: EditItemView(item: item)) {
-//                    HStack(spacing: 20) {
-//                        Circle()
-//                            .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
-//                            .frame(width: 44, height: 44)
-//
-//                        VStack(alignment: .leading) {
-//                            Text(item.itemTitle)
-//                                .font(.title2)
-//                                .foregroundColor(.primary)
-//                                .frame(maxWidth: .infinity, alignment: .leading)
-//
-//                            if item.itemDetail.isEmpty == false {
-//                                Text(item.itemDetail)
-//                                    .foregroundColor(.secondary)
-//                            }
-//                        }
-//                    }
-//                    .padding()
-//                    .background(Color.secondarySystemGroupedBackground)
-//                    .cornerRadius(10)
-//                    .shadow(color: Color.black.opacity(0.2), radius: 5)
-//                }
-//
-//            }
-//        }
-//    }
+    //    @ViewBuilder func list(_ title: LocalizedStringKey, for items: FetchedResults<Item>.SubSequence) -> some View {
+    //        if items.isEmpty {
+    //            EmptyView()
+    //        } else {
+    //            Text(title)
+    //                .font(.headline)
+    //                .foregroundColor(.secondary)
+    //                .padding(.top)
+    //
+    //            ForEach(items) { item in
+    //                NavigationLink(destination: EditItemView(item: item)) {
+    //                    HStack(spacing: 20) {
+    //                        Circle()
+    //                            .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
+    //                            .frame(width: 44, height: 44)
+    //
+    //                        VStack(alignment: .leading) {
+    //                            Text(item.itemTitle)
+    //                                .font(.title2)
+    //                                .foregroundColor(.primary)
+    //                                .frame(maxWidth: .infinity, alignment: .leading)
+    //
+    //                            if item.itemDetail.isEmpty == false {
+    //                                Text(item.itemDetail)
+    //                                    .foregroundColor(.secondary)
+    //                            }
+    //                        }
+    //                    }
+    //                    .padding()
+    //                    .background(Color.secondarySystemGroupedBackground)
+    //                    .cornerRadius(10)
+    //                    .shadow(color: Color.black.opacity(0.2), radius: 5)
+    //                }
+    //
+    //            }
+    //        }
+    //    }
     
 }
 
