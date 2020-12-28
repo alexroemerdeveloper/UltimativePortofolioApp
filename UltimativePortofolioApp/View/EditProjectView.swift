@@ -75,9 +75,9 @@ struct EditProjectView: View {
     }
     
     func update() {
-        project.title = title
+        project.title  = title
         project.detail = detail
-        project.color = color
+        project.color  = color
     }
     
     func delete() {
