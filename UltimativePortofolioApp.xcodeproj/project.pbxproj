@@ -29,6 +29,7 @@
 		6FAB016B254C46E5000483D8 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB016A254C46E5000483D8 /* ProjectHeaderView.swift */; };
 		6FAB016E254C49EB000483D8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FAB016D254C49EB000483D8 /* Colors.xcassets */; };
 		6FAB0171254C4D0A000483D8 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB0170254C4D0A000483D8 /* EditProjectView.swift */; };
+		6FB9661125C012C100F43EF3 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB9661025C012C100F43EF3 /* DevelopmentTests.swift */; };
 		6FC956E8256FB65E00EE24BE /* Color-Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC956E7256FB65E00EE24BE /* Color-Additions.swift */; };
 		6FCA47432561B8C60046E52A /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA47422561B8C60046E52A /* SelectSomethingView.swift */; };
 		6FCA47462561BBB20046E52A /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCA47452561BBB20046E52A /* Bundle-Decodable.swift */; };
@@ -81,6 +82,7 @@
 		6FAB016A254C46E5000483D8 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		6FAB016D254C49EB000483D8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6FAB0170254C4D0A000483D8 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		6FB9661025C012C100F43EF3 /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
 		6FC956E7256FB65E00EE24BE /* Color-Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions.swift"; sourceTree = "<group>"; };
 		6FCA47422561B8C60046E52A /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = "<group>"; };
 		6FCA47452561BBB20046E52A /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				6F40D0EC25B996AB002FF8CF /* ProjectTests.swift */,
 				6F40D0F025B99E11002FF8CF /* AwardTests.swift */,
 				6F66A34325AEEF860001C954 /* AssetTests.swift */,
+				6FB9661025C012C100F43EF3 /* DevelopmentTests.swift */,
 				6F66A33B25AEEE0A0001C954 /* Info.plist */,
 			);
 			path = UltimativePortofolioAppTests;
@@ -414,6 +417,7 @@
 				6F40D0F125B99E11002FF8CF /* AwardTests.swift in Sources */,
 				6F66A33A25AEEE0A0001C954 /* UltimativePortofolioAppTests.swift in Sources */,
 				6F40D0ED25B996AB002FF8CF /* ProjectTests.swift in Sources */,
+				6FB9661125C012C100F43EF3 /* DevelopmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
