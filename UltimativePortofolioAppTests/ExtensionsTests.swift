@@ -41,16 +41,16 @@ class ExtensionsTests: XCTestCase {
     
     
     
-    let bundle = Bundle(for: ExtensionTests.self)
+    let bundle = Bundle(for: ExtensionsTests.self)
     
     func testDecodingString() {
-        let bundle = Bundle(for: ExtensionTests.self)
+        let bundle = Bundle(for: ExtensionsTests.self)
         let data = bundle.decode(String.self, from: "DecodableString.json")
         XCTAssertEqual(data, "The rain in Spain falls mainly on the Spaniards.", "The string must match the content of DecodableString.json.")
     }
     
     func testDecodingDictionary() {
-        let bundle = Bundle(for: ExtensionTests.self)
+        let bundle = Bundle(for: ExtensionsTests.self)
         let data = bundle.decode([String: Int].self, from: "DecodableDictionary.json")
         XCTAssertEqual(data.count, 3, "There should be three items decoded from DecodableDictionary.json.")
         XCTAssertEqual(data["One"], 1, "The dictionary should contain Int to String mappings.")

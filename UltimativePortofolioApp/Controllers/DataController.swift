@@ -47,6 +47,14 @@ class DataController: ObservableObject {
             if let error = error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
+
+            #if DEBUG
+            if CommandLine.arguments.contains("enable-testing") {
+//                Fortunately, we can make one small change to our application to make all our UI tests significantly faster – in DataController where we delete all our data when the app is running in test mode, add this code:
+                UIView.setAnimationsEnabled(false)
+                self.deleteAll()
+            }
+            #endif
         }
     }
     

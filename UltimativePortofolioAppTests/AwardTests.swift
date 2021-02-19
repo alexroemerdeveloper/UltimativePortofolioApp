@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreData
-@testable import UltimatePortfolio
+@testable import UltimativePortofolioApp
 
 class AwardTests: BaseTestCase {
     
