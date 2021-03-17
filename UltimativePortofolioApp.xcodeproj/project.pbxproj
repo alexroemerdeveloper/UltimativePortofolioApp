@@ -25,6 +25,8 @@
 		6F5B92AF25572E6E00118CA7 /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B92AE25572E6E00118CA7 /* Sequence-Sorting.swift */; };
 		6F66A33A25AEEE0A0001C954 /* UltimativePortofolioAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F66A33925AEEE0A0001C954 /* UltimativePortofolioAppTests.swift */; };
 		6F66A34425AEEF860001C954 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F66A34325AEEF860001C954 /* AssetTests.swift */; };
+		6F79DA1E260220EF00DF2382 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F79DA1D260220EF00DF2382 /* HomeViewModel.swift */; };
+		6F79DA232602245100DF2382 /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F79DA222602245100DF2382 /* ItemRowViewModel.swift */; };
 		6F7A1AE225C944D300FA210F /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A1AE125C944D300FA210F /* ExtensionsTests.swift */; };
 		6F7A1AE725C948AC00FA210F /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F7A1AE625C948AC00FA210F /* DecodableDictionary.json */; };
 		6F7A1AED25C948D400FA210F /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F7A1AEC25C948D400FA210F /* DecodableString.json */; };
@@ -90,6 +92,8 @@
 		6F66A33925AEEE0A0001C954 /* UltimativePortofolioAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimativePortofolioAppTests.swift; sourceTree = "<group>"; };
 		6F66A33B25AEEE0A0001C954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F66A34325AEEF860001C954 /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
+		6F79DA1D260220EF00DF2382 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6F79DA222602245100DF2382 /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 		6F7A1AE125C944D300FA210F /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		6F7A1AE625C948AC00FA210F /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
 		6F7A1AEC25C948D400FA210F /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 				6FCA47422561B8C60046E52A /* SelectSomethingView.swift */,
 				6FAB016A254C46E5000483D8 /* ProjectHeaderView.swift */,
 				6FCFA9FF2548A4A2000931AD /* ItemRowView.swift */,
+				6F79DA222602245100DF2382 /* ItemRowViewModel.swift */,
 				6FCFA9FC25489FF8000931AD /* EditItemView.swift */,
 				6FAB0170254C4D0A000483D8 /* EditProjectView.swift */,
 			);
@@ -306,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				6F5859302543241500F30367 /* HomeView.swift */,
+				6F79DA1D260220EF00DF2382 /* HomeViewModel.swift */,
 				6F156E3D257D65D900D591A8 /* ItemListView.swift */,
 				6F156E40257D667600D591A8 /* ProjectSummary.swift */,
 			);
@@ -479,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F5859352543243A00F30367 /* ProjectsView.swift in Sources */,
+				6F79DA1E260220EF00DF2382 /* HomeViewModel.swift in Sources */,
 				6FC956E8256FB65E00EE24BE /* Color-Additions.swift in Sources */,
 				6F5858A62541F0E600F30367 /* Main.xcdatamodeld in Sources */,
 				6FCA47462561BBB20046E52A /* Bundle-Decodable.swift in Sources */,
@@ -489,6 +496,7 @@
 				6F156E41257D667600D591A8 /* ProjectSummary.swift in Sources */,
 				6FCA474F2561C1DF0046E52A /* AwardsView.swift in Sources */,
 				6F5858A925420E1A00F30367 /* DataController.swift in Sources */,
+				6F79DA232602245100DF2382 /* ItemRowViewModel.swift in Sources */,
 				6FAB016B254C46E5000483D8 /* ProjectHeaderView.swift in Sources */,
 				6FCFAA002548A4A2000931AD /* ItemRowView.swift in Sources */,
 				6F5858972541EB9800F30367 /* ContentView.swift in Sources */,
