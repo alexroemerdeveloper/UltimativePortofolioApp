@@ -18,6 +18,7 @@ class ExtensionsTests: XCTestCase {
     }
 
     func testSequenceKeyPathSortingCustom() {
+        // swiftlint:disable:next nesting
         struct Example: Equatable {
             let value: String
         }
