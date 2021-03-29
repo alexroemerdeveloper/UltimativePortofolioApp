@@ -178,12 +178,12 @@
 		6F5858932541EB9800F30367 /* UltimativePortofolioApp */ = {
 			isa = PBXGroup;
 			children = (
+				6F5858942541EB9800F30367 /* UltimativePortofolioAppApp.swift */,
+				6F5858962541EB9800F30367 /* ContentView.swift */,
 				6FB62E5F25A71CD0000F1EF0 /* Activities */,
 				6F74AC67258F6F0E00BA1F3C /* Controllers */,
 				6F74AC65258F6EF100BA1F3C /* Extensions+Helpers */,
 				6FB62E5B25A71B7D000F1EF0 /* Configuration */,
-				6F5858942541EB9800F30367 /* UltimativePortofolioAppApp.swift */,
-				6F5858962541EB9800F30367 /* ContentView.swift */,
 				6F74AC64258F6EDE00BA1F3C /* Localization */,
 				6FAB016D254C49EB000483D8 /* Colors.xcassets */,
 				6F5858982541EB9900F30367 /* Assets.xcassets */,

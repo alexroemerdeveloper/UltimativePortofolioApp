@@ -16,6 +16,7 @@ extension HomeView {
         private let projectsController: NSFetchedResultsController<Project>
         private let itemsController: NSFetchedResultsController<Item>
 
+        @Published var selectedItem: Item?
         @Published var projects = [Project]()
         @Published var items = [Item]()
 
@@ -27,6 +28,10 @@ extension HomeView {
 
         var moreToExplore: ArraySlice<Item> {
             items.dropFirst(3)
+        }
+        
+        func selectItem(with identifier: String) {
+            selectedItem = dataController.item(with: identifier)
         }
         
         init(dataController: DataController) {
