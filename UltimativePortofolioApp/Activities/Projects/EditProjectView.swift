@@ -23,6 +23,11 @@ struct EditProjectView: View {
     
     @State private var engine = try? CHHapticEngine()
     
+    @State private var remindMe: Bool
+    @State private var reminderTime: Date
+    
+    @State private var showingNotificationsError = false
+    
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
@@ -32,6 +37,14 @@ struct EditProjectView: View {
         _title  = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color  = State(wrappedValue: project.projectColor)
+        
+        if let projectReminderTime = project.reminderTime {
+            _reminderTime = State(wrappedValue: projectReminderTime)
+            _remindMe = State(wrappedValue: true)
+        } else {
+            _reminderTime = State(wrappedValue: Date())
+            _remindMe = State(wrappedValue: false)
+        }
     }
     
     var body: some View {
@@ -50,6 +63,18 @@ struct EditProjectView: View {
                 .padding(.vertical)
             }
             
+            Section(header: Text("Project reminders")) {
+               Toggle("Show reminders", isOn: $remindMe.animation().onChange(update))
+
+               if remindMe {
+                   DatePicker(
+                       "Reminder time",
+                       selection: $reminderTime.onChange(update),
+                       displayedComponents: .hourAndMinute
+                   )
+               }
+           }
+    
             
             // section 3
             // swiftlint:disable:next line_length
@@ -72,6 +97,14 @@ struct EditProjectView: View {
                   message: Text("Are you sure you want to delete this project? You will also delete all the items it contains."), // swiftlint:disable:this line_length
                   primaryButton: .default(Text("Delete"),
                   action: delete), secondaryButton: .cancel())
+        }
+        .alert(isPresented: $showingNotificationsError) {
+            Alert(
+                title: Text("Oops!"),
+                message: Text("There was a problem. Please check you have notifications enabled."),
+                primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                secondaryButton: .cancel()
+            )
         }
     }
     
@@ -131,6 +164,23 @@ struct EditProjectView: View {
         project.title  = title
         project.detail = detail
         project.color  = color
+        
+        if remindMe {
+            project.reminderTime = reminderTime
+
+            dataController.addReminders(for: project) { success in
+                if success == false {
+                    project.reminderTime = nil
+                    remindMe = false
+
+                    showingNotificationsError = true
+                }
+            }
+        } else {
+            project.reminderTime = nil
+            dataController.removeReminders(for: project)
+        }
+
     }
     
     func delete() {
@@ -164,6 +214,15 @@ struct EditProjectView: View {
         .accessibilityHint(LocalizedStringKey(item))
     }
     
+    func showAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
+        }
+    }
     
     
 }
