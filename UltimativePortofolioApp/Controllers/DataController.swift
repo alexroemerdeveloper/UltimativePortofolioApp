@@ -222,7 +222,7 @@ class DataController: ObservableObject {
     }
 
     private func placeReminders(for project: Project, completion: @escaping (Bool) -> Void) {
-        let content = UNMutableNotificationContent()
+        let content   = UNMutableNotificationContent()
         content.sound = .default
         content.title = project.projectTitle
 
