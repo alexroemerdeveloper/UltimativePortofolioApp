@@ -36,6 +36,7 @@
 		6FAB016B254C46E5000483D8 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB016A254C46E5000483D8 /* ProjectHeaderView.swift */; };
 		6FAB016E254C49EB000483D8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FAB016D254C49EB000483D8 /* Colors.xcassets */; };
 		6FAB0171254C4D0A000483D8 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB0170254C4D0A000483D8 /* EditProjectView.swift */; };
+		6FAC00FC261E1EA600BC6745 /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC00FB261E1EA600BC6745 /* UnlockManager.swift */; };
 		6FB9661125C012C100F43EF3 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB9661025C012C100F43EF3 /* DevelopmentTests.swift */; };
 		6FBEE50225DA7055009F3C06 /* PerformaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE50125DA7055009F3C06 /* PerformaneTests.swift */; };
 		6FC956E8256FB65E00EE24BE /* Color-Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC956E7256FB65E00EE24BE /* Color-Additions.swift */; };
@@ -106,6 +107,8 @@
 		6FAB016A254C46E5000483D8 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		6FAB016D254C49EB000483D8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6FAB0170254C4D0A000483D8 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		6FAC00FB261E1EA600BC6745 /* UnlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockManager.swift; sourceTree = "<group>"; };
+		6FAC0100261E243000BC6745 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		6FB9661025C012C100F43EF3 /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
 		6FBEE50125DA7055009F3C06 /* PerformaneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformaneTests.swift; sourceTree = "<group>"; };
 		6FC956E7256FB65E00EE24BE /* Color-Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions.swift"; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				6F5858942541EB9800F30367 /* UltimativePortofolioAppApp.swift */,
+				6FAC00FB261E1EA600BC6745 /* UnlockManager.swift */,
+				6FAC0100261E243000BC6745 /* Configuration.storekit */,
 				6F5858962541EB9800F30367 /* ContentView.swift */,
 				6FB62E5F25A71CD0000F1EF0 /* Activities */,
 				6F74AC67258F6F0E00BA1F3C /* Controllers */,
@@ -489,6 +494,7 @@
 				6FC956E8256FB65E00EE24BE /* Color-Additions.swift in Sources */,
 				6F5858A62541F0E600F30367 /* Main.xcdatamodeld in Sources */,
 				6FCA47462561BBB20046E52A /* Bundle-Decodable.swift in Sources */,
+				6FAC00FC261E1EA600BC6745 /* UnlockManager.swift in Sources */,
 				6FED5D982544980A00B2BE04 /* Project-CoreDataHelpers.swift in Sources */,
 				6F156E3E257D65D900D591A8 /* ItemListView.swift in Sources */,
 				6FCA47432561B8C60046E52A /* SelectSomethingView.swift in Sources */,
