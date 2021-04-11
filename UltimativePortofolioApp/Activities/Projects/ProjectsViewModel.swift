@@ -13,6 +13,8 @@ extension ProjectsView {
     
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
         
+        @Published var showingUnlockView = false
+
         @Published var projects = [Project]()
         
         var sortOrder           = Item.SortOrder.optimized
@@ -65,10 +67,16 @@ extension ProjectsView {
         }
         
         func addProject() {
-            let project = Project(context: dataController.container.viewContext)
-            project.closed = false
-            project.creationDate = Date()
-            dataController.save()
+            let canCreate = dataController.fullVersionUnlocked || dataController.count(for: Project.fetchRequest()) < 3
+
+            if canCreate {
+                let project = Project(context: dataController.container.viewContext)
+                project.closed = false
+                project.creationDate = Date()
+                dataController.save()
+            } else {
+                showingUnlockView.toggle()
+            }
         }
         
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -76,6 +84,8 @@ extension ProjectsView {
                 projects = newProjects
             }
         }
+        
+        
         
     }
 }

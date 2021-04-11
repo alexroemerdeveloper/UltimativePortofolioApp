@@ -43,6 +43,7 @@ struct ContentView: View {
                     Text("Awards")
                 }
         }
+        .onAppear(perform: dataController.appLaunched)
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
     }
     
