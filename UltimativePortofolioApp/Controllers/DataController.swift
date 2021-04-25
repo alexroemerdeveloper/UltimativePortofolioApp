@@ -34,7 +34,7 @@ class DataController: ObservableObject {
     let defaults: UserDefaults
 
     // Loads and saves whether our premium unlock has been purchased.
-    private var fullVersionUnlocked: Bool {
+    var fullVersionUnlocked: Bool {
         get {
             defaults.bool(forKey: "fullVersionUnlocked")
         }
@@ -272,5 +272,18 @@ class DataController: ObservableObject {
         }
     }
 
+    @discardableResult func addProject() -> Bool {
+        let canCreate = fullVersionUnlocked || count(for: Project.fetchRequest()) < 3
+
+        if canCreate {
+            let project = Project(context: container.viewContext)
+            project.closed = false
+            project.creationDate = Date()
+            save()
+            return true
+        } else {
+            return false
+        }
+    }
     
 }

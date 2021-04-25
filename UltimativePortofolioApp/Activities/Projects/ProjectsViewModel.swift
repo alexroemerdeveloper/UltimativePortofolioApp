@@ -66,15 +66,20 @@ extension ProjectsView {
             dataController.save()
         }
         
+//        func addProject() {
+//            let canCreate = dataController.fullVersionUnlocked || dataController.count(for: Project.fetchRequest()) < 3
+//
+//            if canCreate {
+//                let project = Project(context: dataController.container.viewContext)
+//                project.closed = false
+//                project.creationDate = Date()
+//                dataController.save()
+//            } else {
+//                showingUnlockView.toggle()
+//            }
+//        }
         func addProject() {
-            let canCreate = dataController.fullVersionUnlocked || dataController.count(for: Project.fetchRequest()) < 3
-
-            if canCreate {
-                let project = Project(context: dataController.container.viewContext)
-                project.closed = false
-                project.creationDate = Date()
-                dataController.save()
-            } else {
+            if dataController.addProject() == false {
                 showingUnlockView.toggle()
             }
         }

@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct UltimativePortofolioAppApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @StateObject var unlockManager: UnlockManager
     @StateObject var dataController: DataController
     
@@ -38,7 +40,40 @@ struct UltimativePortofolioAppApp: App {
     func save(_ note: Notification) {
         dataController.save()
     }
+}
+
+
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication,configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        let sceneConfiguration = UISceneConfiguration(name: "Default", sessionRole: connectingSceneSession.role)
+        sceneConfiguration.delegateClass = SceneDelegate.self
+        return sceneConfiguration
+    }
     
     
+}
+
+
+class SceneDelegate: NSObject, UIWindowSceneDelegate {
+    
+    @Environment(\.openURL) var openURL
+    
+    func windowScene(_ windowScene: UIWindowScene,performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        guard let url = URL(string: shortcutItem.type) else {
+            completionHandler(false)
+            return
+        }
+
+        openURL(url, completion: completionHandler)
+    }
+    
+    func scene(_ scene: UIScene,willConnectTo session: UISceneSession,options connectionOptions: UIScene.ConnectionOptions) {
+        if let shortcutItem = connectionOptions.shortcutItem {
+            guard let url = URL(string: shortcutItem.type) else { return }
+            openURL(url)
+        }
+    }
     
 }

@@ -121,10 +121,6 @@ struct ProjectsView: View {
             UnlockView()
         }
     }
-    
-    
-    
-    
 }
 
 struct ProjectsView_Previews: PreviewProvider {
