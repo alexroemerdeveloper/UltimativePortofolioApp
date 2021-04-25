@@ -13,6 +13,8 @@ struct ContentView: View {
     @EnvironmentObject var dataController: DataController
     @SceneStorage("selectedView") var selectedView: String?
     
+    private let newProjectActivity = "roemer.design.UltimativePortofolioApp.newProject"
+
     var body: some View {
         TabView(selection: $selectedView) {
             HomeView(dataController: dataController)
@@ -46,6 +48,11 @@ struct ContentView: View {
         .onOpenURL(perform: openURL)
         .onAppear(perform: dataController.appLaunched)
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
+        .onContinueUserActivity(newProjectActivity, perform: createProject)
+        .userActivity(newProjectActivity) { activity in
+            activity.isEligibleForPrediction = true
+            activity.title = "New Project"
+        }
     }
     
     func moveToHome(_ input: Any) {
@@ -55,6 +62,11 @@ struct ContentView: View {
     func openURL(_ url: URL) {
         selectedView = ProjectsView.openTag
         _ = dataController.addProject()
+    }
+    
+    func createProject(_ userActivity: NSUserActivity) {
+        selectedView = ProjectsView.openTag
+        dataController.addProject()
     }
 }
 
