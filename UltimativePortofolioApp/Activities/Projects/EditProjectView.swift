@@ -29,6 +29,9 @@ struct EditProjectView: View {
     
     @State private var showingNotificationsError = false
     
+    @AppStorage("username") var username: String?
+    @State private var showingSignIn = false
+    
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
@@ -101,19 +104,7 @@ struct EditProjectView: View {
         }
         .navigationTitle("Edit Project")
         .toolbar {
-            Button {
-                let records = project.prepareCloudRecords()
-                let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
-                operation.savePolicy = .allKeys
-
-                operation.modifyRecordsCompletionBlock = { _, _, error in
-                    if let error = error {
-                        print("Error: \(error.localizedDescription)")
-                    }
-                }
-
-                CKContainer.default().publicCloudDatabase.add(operation)
-            } label: {
+            Button(action: uploadToCloud) {
                 Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
             }
         }
@@ -124,6 +115,8 @@ struct EditProjectView: View {
                   primaryButton: .default(Text("Delete"),
                   action: delete), secondaryButton: .cancel())
         }
+        .sheet(isPresented: $showingSignIn, content: SignInView.init)
+
     }
     
     func toggleClosed() {
@@ -238,6 +231,24 @@ struct EditProjectView: View {
 
         if UIApplication.shared.canOpenURL(settingsUrl) {
             UIApplication.shared.open(settingsUrl)
+        }
+    }
+    
+    func uploadToCloud() {
+        if let username = username {
+            let records = project.prepareCloudRecords(owner: username)
+            let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
+            operation.savePolicy = .allKeys
+
+            operation.modifyRecordsCompletionBlock = { _, _, error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+
+            CKContainer.default().publicCloudDatabase.add(operation)
+        } else {
+            showingSignIn = true
         }
     }
     

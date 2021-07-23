@@ -14,7 +14,7 @@ struct UltimativePortofolioAppApp: App {
     
     @StateObject var unlockManager: UnlockManager
     @StateObject var dataController: DataController
-    
+        
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -29,12 +29,17 @@ struct UltimativePortofolioAppApp: App {
         }
     }
     
+    
     init() {
         let dataController = DataController()
         let unlockManager = UnlockManager(dataController: dataController)
 
         _dataController = StateObject(wrappedValue: dataController)
         _unlockManager = StateObject(wrappedValue: unlockManager)
+        
+        #if targetEnvironment(simulator)
+        UserDefaults.standard.set("TwoStraws", forKey: "username")
+        #endif
     }
     
     func save(_ note: Notification) {
