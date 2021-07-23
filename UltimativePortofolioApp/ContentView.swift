@@ -44,6 +44,13 @@ struct ContentView: View {
                     Image(systemName: "rosette")
                     Text("Awards")
                 }
+            
+            SharedProjectsView()
+                .tag(SharedProjectsView.tag)
+                .tabItem {
+                    Image(systemName: "person.3")
+                    Text("Community")
+                }
         }
         .onOpenURL(perform: openURL)
         .onAppear(perform: dataController.appLaunched)
