@@ -11,6 +11,12 @@ import CloudKit
 
 struct EditProjectView: View {
     
+    enum CloudStatus {
+        case checking, exists, absent
+    }
+    
+    @State private var cloudStatus = CloudStatus.checking
+
     @EnvironmentObject var dataController: DataController
     
     @Environment(\.presentationMode) var presentationMode
@@ -104,8 +110,17 @@ struct EditProjectView: View {
         }
         .navigationTitle("Edit Project")
         .toolbar {
-            Button(action: uploadToCloud) {
-                Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+            switch cloudStatus {
+            case .checking:
+                ProgressView()
+            case .exists:
+                Button(action: removeFromCloud) {
+                    Label("Remove from iCloud", systemImage: "icloud.slash")
+                }
+            case .absent:
+                Button(action: uploadToCloud) {
+                    Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+                }
             }
         }
         .onDisappear(perform: dataController.save)
@@ -116,6 +131,7 @@ struct EditProjectView: View {
                   action: delete), secondaryButton: .cancel())
         }
         .sheet(isPresented: $showingSignIn, content: SignInView.init)
+        .onAppear(perform: updateCloudStatus)
 
     }
     
@@ -164,11 +180,31 @@ struct EditProjectView: View {
             } catch {
                 print("Haptic not working to play  ")
             }
-            
-            
-
         }
-        
+    }
+    
+    func updateCloudStatus() {
+        project.checkCloudStatus { exists in
+            if exists {
+                cloudStatus = .exists
+            } else {
+                cloudStatus = .absent
+            }
+        }
+    }
+    
+    func removeFromCloud() {
+        let name = project.objectID.uriRepresentation().absoluteString
+        let id = CKRecord.ID(recordName: name)
+
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [id])
+
+        operation.modifyRecordsCompletionBlock = { _, _, _ in
+            updateCloudStatus()
+        }
+
+        cloudStatus = .checking
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
     
     func update() {
@@ -241,16 +277,17 @@ struct EditProjectView: View {
             operation.savePolicy = .allKeys
 
             operation.modifyRecordsCompletionBlock = { _, _, error in
-                if let error = error {
-                    print("Error: \(error.localizedDescription)")
-                }
+                updateCloudStatus()
             }
+
+            cloudStatus = .checking
 
             CKContainer.default().publicCloudDatabase.add(operation)
         } else {
             showingSignIn = true
         }
     }
+
     
     
 }

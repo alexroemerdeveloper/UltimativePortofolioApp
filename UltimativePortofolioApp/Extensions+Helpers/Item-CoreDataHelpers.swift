@@ -5,6 +5,7 @@
 //  Created by Alexander Römer on 24.10.20.
 //
 import Foundation
+import CloudKit
 
 extension Item {
     
@@ -36,4 +37,5 @@ extension Item {
         item.creationDate = Date()
         return item
     }
+    
 }

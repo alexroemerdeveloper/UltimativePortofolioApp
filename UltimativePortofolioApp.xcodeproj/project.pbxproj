@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F156E3E257D65D900D591A8 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F156E3D257D65D900D591A8 /* ItemListView.swift */; };
 		6F156E41257D667600D591A8 /* ProjectSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F156E40257D667600D591A8 /* ProjectSummary.swift */; };
+		6F219E8426D37BCC003F54AD /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F219E8326D37BCC003F54AD /* ChatMessage.swift */; };
 		6F2A675326234D7F0088812B /* PurchaseButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A675226234D7F0088812B /* PurchaseButtonStyle.swift */; };
 		6F2A675826234DA10088812B /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A675726234DA10088812B /* ProductView.swift */; };
 		6F2A675D26234DB50088812B /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2A675C26234DB50088812B /* UnlockView.swift */; };
@@ -116,6 +117,7 @@
 /* Begin PBXFileReference section */
 		6F156E3D257D65D900D591A8 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		6F156E40257D667600D591A8 /* ProjectSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummary.swift; sourceTree = "<group>"; };
+		6F219E8326D37BCC003F54AD /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		6F2A675226234D7F0088812B /* PurchaseButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButtonStyle.swift; sourceTree = "<group>"; };
 		6F2A675726234DA10088812B /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		6F2A675C26234DB50088812B /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				6FB62E5F25A71CD0000F1EF0 /* Activities */,
 				6F74AC67258F6F0E00BA1F3C /* Controllers */,
 				6F74AC65258F6EF100BA1F3C /* Extensions+Helpers */,
+				6F219E8326D37BCC003F54AD /* ChatMessage.swift */,
 				6FB62E5B25A71B7D000F1EF0 /* Configuration */,
 				6F74AC64258F6EDE00BA1F3C /* Localization */,
 				6FAB016D254C49EB000483D8 /* Colors.xcassets */,
@@ -675,6 +678,7 @@
 				6F5858952541EB9800F30367 /* UltimativePortofolioAppApp.swift in Sources */,
 				6FED5D952544972600B2BE04 /* Item-CoreDataHelpers.swift in Sources */,
 				6FCFA9FD25489FF8000931AD /* EditItemView.swift in Sources */,
+				6F219E8426D37BCC003F54AD /* ChatMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
